@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 // Заголовок с акцентной полосой слева
 @mixin title-accent($width: 4px, $height: 40px, $color: $color-accent) {
   position: relative;

@@ -553,45 +553,12 @@ src: url("./fonts/TTLakes-Regular.ttf") format('truetype');
                 background-color:#41F6D7;
 }
 
-   .nav-list__list {
-                display: flex;
-                width: 100%;
-                align-items: center;
-                overflow-x:scroll;
-                overflow-y: hidden;
-                list-style-type: none;
-                margin-left: 16px;
-                padding: 10px;
-                margin-top: 0;
-}
 
     ::-webkit-scrollbar {
                 display: none;
 }
 
-    .nav-list__link {
-                width: 200px;
-                height:40px;
-                text-decoration:none;
-                color: #7E7E82;
-                text-align: center;
-                justify-content:flex-start;
-                white-space: nowrap;
-                border: 2px;
-                padding: 5px 8px;
-                margin-right: 0;
-                border-radius: 5px;
-                font-family:'TT LakesR', sans-serif;
-                font-weight: 500;
-                font-size: 16px;
-                line-height: 24px;
-                letter-spacing: -0.2px;
-}
-    .nav-list__link:hover {
-                color: #7E7E82;
-                border: 1px solid #B8FFEC; 
-                background-color: #FFFFFF;
-}
+  
     .text-par {
                 display: flex;
                 width: 288px;
