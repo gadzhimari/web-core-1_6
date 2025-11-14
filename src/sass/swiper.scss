@@ -6,9 +6,11 @@
 .name,
 .nametwo {
   width: 288px;
-  max-height: 80px;
+  height: 80px;
   margin: 10px;
   padding: 10px;
+  border: 0;
+  background-color: $color-bg;
   color: $color-text-gray;
   font-family: $font-regular;
   font-weight: 400;
@@ -30,16 +32,47 @@
 .swiper {
   position: relative;
   overflow: visible;
-  padding: 0 20px 20px;
+  padding:0 20px 20px;
 }
 
 // Бренды
 .brands {
   &__list {
-    max-height: 145px;
+    max-height: 150px;
     display: flex;
     flex-wrap: nowrap;
     gap: 16px;
+    overflow: hidden;
+
+            
+@media (min-width:768px) {
+    overflow: hidden;
+    max-height: 400px; 
+
+}
+
+.brands__item.swiper-slide {
+  display: flex;
+  height: 72px;
+  width: 240px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border:#EAEAEA solid 1px;
+  box-shadow: 0s 2px 6px rgba(0,0,0,0.1);
+  background-color: $color-white;
+
+  @media (min-width:768px) {
+    flex-wrap: wrap;
+    overflow: hidden;        
+}
+
+&__item:hover {
+    background-color:#f9d3da;
+    transition: $transition;  
+    }
+}
+
     @include hide-scrollbar;
 
     @media (min-width: 768px) {
@@ -55,76 +88,60 @@
 
     @media (min-width: 1120px) {
       max-height: 150px;
+
       &.expand {
         max-height: 1000px;
       }
     }
-  }
-
-  &__item {
-    display: flex;
-    height: 50px;
-    max-width: 202px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid $color-border;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: $color-white;
-
-    &:hover {
-      background-color: #f9d3da;
-      transition: $transition;
-    }
-
-    @media (min-width: 768px) {
-      width: calc(33.33% - 12px);
-    }
 
     @media (min-width: 1120px) {
       flex: 1 1 calc(25% - 12px);
-      max-width: 218px;
     }
   }
 }
-
+.swiper-pagination {
+  display: flex;
+}
 // Устройства
 .devices {
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 768px) {
-    width: 100%;
-
     &__list {
       max-height: 290px;
       overflow: visible;
       flex-wrap: wrap;
+      gap:24px;
     }
 
     &.over {
       max-height: 1100px;
     }
-
+   &__technycs {
+      margin:auto;
+      margin-top: 0;
+      margin-left: 14px;
+   }
     .devices__item {
-      max-width: 220px;
-      height: 160px;
+      justify-content: space-between;
+      align-items: end;
+      padding: 10px;
     }
-
+    h1.name {
+      height: 80px;
+      border: 0;
+    }
     .swipersec-pagination {
       display: none;
     }
-  }
+    @include hide-scrollbar;
 }
 
-.devices .swiper-slide {
+.devices__item.swiper-slide {
   display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: space-between;
-  max-width: 200px;
-  height: 120px;
-  padding: 20px;
-  border: 1px solid $color-border;
+  width: 240px;
+  height: 160px;
+  border: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   background-color: $color-white;
   font-family: $font-medium;
@@ -132,29 +149,29 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+
+  @media (min-width:768px) {
+    max-width: 224px;
+  }
+  .repair-devices {
+    gap:24px;
+  }
 }
 
 // Цены
 .prices {
-  display: flex;
-  flex-direction: column;
   background-color: $color-bg;
-  margin: 0;
   padding: 0;
 
   @media (min-width: 768px) {
     display: grid;
     border: 1px solid #ddd;
-  }
-
-  @media (min-width: 1120px) {
     width: 100%;
   }
-}
+  }
+
 
 .prices-tit {
-  max-width: 126px;
-  max-height: 19px;
   color: $color-text-gray;
   font-family: $font-regular;
   font-weight: 500;
@@ -171,9 +188,8 @@
 
 .prices__list {
   height: 200px;
-  max-width: 100%;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 16px;
 
   @media (min-width: 768px) {
@@ -186,13 +202,12 @@
   }
 }
 
-.prices .swiper-slide {
-  max-width: 260px;
-  max-height: 200px;
-  flex-direction: column;
+.prices__item.swiper-slide {
+  width: 228px;
+  height:168px;
   background-color: $color-white;
-  padding-top: 10px;
-  justify-content: center;
+  padding: 0 0 20px 0;
+  
 }
 
 .prices__description {
@@ -202,7 +217,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-
+  
   @media (min-width: 768px) {
     font-size: 14px;
     color: #333;
@@ -218,6 +233,9 @@
   }
 }
 
+.prices-header {
+    display: none;
+}
 // Десктопная таблица цен
 @media (min-width: 768px) {
   .prices-header {
@@ -241,19 +259,6 @@
     .prices__description:nth-child(4) { grid-column: 2; } // Цена
     .prices__description:nth-child(6) { grid-column: 3; } // Срок
 
-    .button_order {
-      grid-column: 4;
-      justify-self: end;
-      background-color: $color-primary;
-      border: none;
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 6px;
-      font-weight: bold;
-      color: $color-white;
-      cursor: pointer;
-      white-space: nowrap;
-    }
   }
 }
 
