@@ -1,27 +1,110 @@
 @use "variables" as *;
-.brands__list {
-            max-height: 145px;
-            max-width: 100%;
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 16px;  
-   @media (min-width:768px) {
-            flex-wrap:wrap;
-            max-height: 150px;
-            overflow: hidden;        
+@use "mixins" as *;
+
+.brands {
+  @include hide-scrollbar;
+
+  @media (min-width: 768px) {
+    gap: 10px;
+    flex-wrap: wrap;
+    max-height: 150px;
+    overflow: hidden;
+
+    &.expand {
+      max-height: 1000px;
+    }
+  }
+
+  @media (min-width: 1120px) {
+    max-height: 150px;
+    flex: 1 1 calc(25% - 12px);
+
+    &.expand {
+      max-height: 1000px;
+    }
+  }
 }
+
+.brands__swiper {
+  --swiper-pagination-bullet-size: 12px;
+  --swiper-pagination-color: #b5b6bc;
+  --swiper-pagination-bullet-inactive-color: #b5b6bc;
+}
+
+.brands__list {
+  max-height: 145px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    max-height: 150px;
+    overflow: hidden;
+  }
+}
+
 .brands__item {
-            display: flex;
-            height:50px;
-            max-width: 202px;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border:#EAEAEA solid 1px;
-            box-shadow: 0s 2px 6px rgba(0,0,0,0.1);
-            background-color: #FFFFFF;  
-    }
-.brands__item:hover {
-            background-color:#f9d3da;
-            transition: $transition;  
-    }
+  display: flex;
+  height: 72px;
+  width: 240px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: #eaeaea solid 1px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: $color-white;
+
+  &:hover {
+    background-color: #f9d3da;
+    transition: $transition;
+  }
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+}
+
+.brands__pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.button_more {
+  position: absolute;
+  right: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: $color-primary solid 2px;
+  transition: all $transition;
+  color: $color-white;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button_send {
+  width: 119px;
+  height: 32px;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  margin: 0;
+  margin-top: 0;
+  font-weight: bold;
+  color: $color-white;
+  cursor: pointer;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    grid-column: 4;
+  }
+}

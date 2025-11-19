@@ -1,0 +1,75 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Устройства
+.devices {
+  display: flex;
+  flex-direction: column;
+
+  &__swiper {
+    margin-left: 0;
+    margin-right: 0;
+
+    --swiper-pagination-bullet-size: 12px;
+    --swiper-pagination-color: #b5b6bc;
+    --swiper-pagination-bullet-inactive-color: #b5b6bc;
+  }
+
+  &__list {
+    max-height: 290px;
+    overflow: visible;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  &.over {
+    max-height: 1100px;
+  }
+
+  &__technycs {
+    margin: auto;
+    margin-top: 0;
+    margin-left: 14px;
+  }
+
+  &__item {
+    position: relative;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px;
+  }
+
+  h1.name {
+    height: 80px;
+    border: 0;
+  }
+
+  @include hide-scrollbar;
+}
+
+.devices__item.swiper-slide {
+  display: flex;
+  height: 160px;
+  border: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: $color-white;
+  font-family: $font-medium;
+  color: $color-text-dark;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  @media (min-width: 768px) {
+    max-width: 224px;
+  }
+}
+
+.devices__pagination {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

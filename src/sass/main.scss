@@ -1,11 +1,14 @@
 // Подключаем все части
-@use 'variables';
-@use 'mixins';
-@use 'fonts';
-@use 'base';
-@use 'layout';
-@use 'components';
-@use 'modals';
-@use 'swiper';
-@use 'footer';
-@use 'nav-menu';
+@use "variables";
+@use "mixins";
+@use "fonts";
+@use "base";
+@use "layout";
+@use "components";
+@use "modals";
+@use "swiper";
+@use "footer";
+@use "nav-menu";
+@use "brands-list";
+@use "devices-list";
+@use "prices-list";

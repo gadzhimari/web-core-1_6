@@ -22,40 +22,7 @@
   margin-left: auto;
   margin-right: 0;
 }
-.button_more {
-  display: flex;
-  margin: 0;
-  background-color: transparent;
-  border-radius: 50%;
-  border:$color-primary solid 2px;
-  transition: all $transition; 
-  color: $color-white;
-  align-items: center;  
-  justify-content: center; 
-    }
-.button_more:hover {
-  cursor: pointer;       
-    }
 
-    .button_order,
-    .button_send {
-      width: 119px;
-      height: 32px;
-      background-color: $color-primary;
-      border: none;
-      border-radius: 16px;
-      padding: 0;
-      margin: 0;
-      margin-top: 0;
-      font-weight: bold;
-      color: $color-white;
-      cursor: pointer;
-      white-space: nowrap;
-      
-      @media (min-width: 768px) {
-        grid-column: 4;
-      }
-    }
 // Ссылки меню
 .menu-list {
   &__catalog {
