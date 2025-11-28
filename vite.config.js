@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 
 export default defineConfig(({ mode }) => {
-  const base = process.env.NODE_ENV === "production" ? "/" : "/web-core-1_6/";
+  // const base = process.env.NODE_ENV === "production" ? "/" : "/web-core-1_6/";
+  const base = "/web-core-1_6/";
 
   return {
     publicDir: "public",
@@ -10,7 +11,7 @@ export default defineConfig(({ mode }) => {
       outDir: "dist",
       cssCodeSplit: true,
       emptyOutDir: true,
-      assetsDir: ".",
+      assetsDir: "./",
       rollupOptions: {
         input: {
           main: "index.html",
